@@ -1,6 +1,6 @@
 import React from "react";
 
-const Navbar = () => {
+export function Navbar() {
   return (
     <nav className="navbar w-full bg-base-300">
       <label
@@ -27,6 +27,6 @@ const Navbar = () => {
       <div className="px-4">Chatbot</div>
     </nav>
   );
-};
+}
 
 export default Navbar;
