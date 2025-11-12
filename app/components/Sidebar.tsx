@@ -1,6 +1,6 @@
 import { type } from "os";
 
-type SidebarProps = {
+export type SidebarProps = {
   drawerId: string;
 };
 

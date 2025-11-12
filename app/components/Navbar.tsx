@@ -1,7 +1,7 @@
 import { type } from "os";
 import React from "react";
 
-type NavbarProps = {
+export type NavbarProps = {
   drawerId: string;
   title?: string;
 };

@@ -1,4 +1,4 @@
-type DrawerLayoutProps = {
+export type DrawerLayoutProps = {
   drawerId?: string;
   navBarTitle?: string;
   children: React.ReactNode;
