@@ -1,12 +1,18 @@
+import { type } from "os";
 import React from "react";
 
-export function Navbar() {
+type NavbarProps = {
+  drawerId: string;
+  title?: string;
+};
+
+export function Navbar({ drawerId, title = "Navbar Title" }: NavbarProps) {
   return (
     <nav className="navbar w-full bg-base-300">
       <label
-        htmlFor="my-drawer-4"
+        htmlFor={drawerId}
         aria-label="open sidebar"
-        className="btn btn-square btn-ghost"
+        className="btn btn-square btn-ghost lg:hidden"
       >
         {/* Sidebar toggle icon */}
         <svg
@@ -24,7 +30,7 @@ export function Navbar() {
           <path d="M14 10l2 2l-2 2"></path>
         </svg>
       </label>
-      <div className="px-4">Chatbot</div>
+      <div className="px-4">{title}</div>
     </nav>
   );
 }
