@@ -1,3 +1,5 @@
+"use client";
+
 import Navbar from "./Navbar";
 import { Sidebar } from "./Sidebar";
 
@@ -21,9 +23,9 @@ export default function DrawerLayout({
         <Navbar drawerId={drawerId} title={navBarTitle} />
 
         <div className="p-4">{children}</div>
-
-        <Sidebar drawerId={drawerId} />
       </div>
+
+      <Sidebar drawerId={drawerId} />
     </div>
   );
 }
