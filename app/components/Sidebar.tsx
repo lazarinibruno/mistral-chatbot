@@ -1,10 +1,10 @@
 import { type } from "os";
 
 export type SidebarProps = {
-  drawerId?: string;
+  drawerId: string;
 };
 
-export function Sidebar({ drawerId = "drawer-1" }: SidebarProps) {
+export function Sidebar({ drawerId }: SidebarProps) {
   return (
     <div className="drawer-side is-drawer-close:overflow-visible">
       {/* clicking the overlay will toggle the checkbox (close drawer on mobile) */}
