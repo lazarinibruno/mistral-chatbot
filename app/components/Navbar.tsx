@@ -2,11 +2,14 @@ import { type } from "os";
 import React from "react";
 
 export type NavbarProps = {
-  drawerId: string;
+  drawerId?: string;
   title?: string;
 };
 
-export function Navbar({ drawerId, title = "Navbar Title" }: NavbarProps) {
+export function Navbar({
+  drawerId = "drawer-1",
+  title = "Navbar Title",
+}: NavbarProps) {
   return (
     <nav className="navbar w-full bg-base-300">
       <label
