@@ -8,7 +8,10 @@ import { NextResponse } from "next/server";
  */
 export async function POST(req: Request) : Promise<Response> {
   try {
+
+    // returns a promise that resolves with the result parsing the body text as JSON
     const body = await req.json();
+
     const { model = "mistral-small-latest", messages } = body;
 
     /* Make sure that the message is an array and that the API key env var has been set */
@@ -26,7 +29,7 @@ export async function POST(req: Request) : Promise<Response> {
         "Authorization": `Bearer ${process.env.MISTRAL_API_KEY ?? ""}`,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ model, messages, max_tokens: 2024 })
+      body: JSON.stringify( {model, messages} )
     })
     
     const text = await upstream.text();
@@ -37,11 +40,7 @@ export async function POST(req: Request) : Promise<Response> {
 
     return new Response(text, {status: upstream.status, headers: { "Content-Type": "application/json"},});
   } catch (err) {
-    if (err instanceof Error) {
-      console.error("Error in api/chat/route.ts: ", err.message);
-    } else {
-      console.error("Unknown error: ", err);
-    }
+    console.error(err);
     return NextResponse.json({error: "internal"}, {status: 500});
   }
 }
