@@ -6,7 +6,7 @@ import { NextResponse } from "next/server";
  * @param req The request
  * @throws {Error} If the API key is not set or if the API call fails.
  */
-export async function POST(req: Request) {
+export async function POST(req: Request) : Promise<Response> {
   try {
     const body = await req.json();
     const { model = "mistral-small-latest", messages } = body;
