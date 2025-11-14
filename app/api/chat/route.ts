@@ -1,5 +1,11 @@
 import { NextResponse } from "next/server";
 
+/**
+ * Accepts a request that is then forwarded to the Mistral API chat endpoint.
+ * 
+ * @param req The request
+ * @throws {Error} If the API key is not set or if the API call fails.
+ */
 export async function POST(req: Request) {
   try {
     const body = await req.json();
