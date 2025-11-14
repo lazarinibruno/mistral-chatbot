@@ -2,17 +2,40 @@
 
 import React, { useState } from "react";
 
+type message = { content: string; role: string };
+
 export function ChatInput() {
   const [msg, setMsg] = useState("");
 
   const handleSumbmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!msg.trim()) return; // Prevents user from submiting whitespaces
+    // if (!msg.trim()) return; // Prevents user from submiting whitespaces
 
-    alert(msg);
+    send();
 
     setMsg("");
+  };
+
+  const send = async () => {
+    const mssg: message = { content: "how are you?", role: "user" };
+
+    try {
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Conent-Type": "application/json" },
+        body: JSON.stringify({
+          model: "mistral-small-latest",
+          messages: [mssg],
+        }),
+      });
+
+      const body = await response.json();
+
+      console.log(body);
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   return (
