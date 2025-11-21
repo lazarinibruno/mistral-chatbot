@@ -1,7 +1,7 @@
 import React from "react";
 
 interface ChatBubbleProps {
-  chatId: number;
+  chatId: string;
   role: string;
   children: React.ReactNode;
 }

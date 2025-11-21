@@ -23,30 +23,29 @@ export function ChatInput() {
   };
 
   const send = async () => {
+    // Here, there are two operations: an enqueue operation that runs async and updates the state of the messages.
+    // However, since it is async, it may not be completed in time before the POST is made, so we need to construct an
+    // array to send locally.
+
     // Message type needed for the API
     const msg: message = {
       content: usrInput,
       role: "user",
     };
 
-    // Message type needed for the rendering of the chat bubbles
-    const userMsg: chatMsg = {
-      id: generateMessageId(),
-      content: msg.content,
-      role: msg.role,
-    };
-
-    // Here, there are two operations: an enqueue operation that runs async and updates the state of the messages.
-    // However, since it is async, it may not be completed in time before the POST is made, so we need to construct an
-    // array locally to send.
-
-    addChatMsg(userMsg); // async
-
     // The chat completion endpoint is stateless, so sending the whole conversation is needed
     const apiMsgs: message[] = [...chats, msg].map((m) => ({
       content: m.content,
       role: m.role,
     })) as message[];
+
+    // Create message object to update the internal message array. This runs asynchronously.
+    const userMsg: chatMsg = {
+      id: generateMessageId(),
+      content: msg.content,
+      role: msg.role,
+    };
+    addChatMsg(userMsg);
 
     try {
       const response = await fetch("/api/chat", {

@@ -7,7 +7,7 @@
  * @property {string} role - The sender of the message; either "user" or "assistant"
  */
 export type chatMsg = {
-  id: number;
+  id: string;
   content: string;
   role: "assistant" | "user";
 }

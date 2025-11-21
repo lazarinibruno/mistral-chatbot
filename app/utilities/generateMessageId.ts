@@ -1,33 +1,16 @@
-/**
- * Generates a numeric unique ID based on system time (milliseconds).
- * Returns a Number (safe integer) with format: (timestampMillis * 1000) + sequence
- * Sequence increments for multiple calls in the same millisecond (0..999).
- */
-export const generateMessageId = (() => {
-  let lastTimestamp: number = 0;
-  let sequence: number = 0;
-  const SEQUENCE_MAX = 999; // allows up to 1000 unique IDs per millisecond
+/** Uses Web Crypto `crypto.randomUUID()` if available, falls back to a compact safe string. 
+ * 
+ * 
+ * @returns {string} Message Id
+*/
+export function generateMessageId(): string {
+  if (typeof crypto !== "undefined" && typeof (crypto as any).randomUUID === "function") {
+    return (crypto as any).randomUUID();
+  }
 
-  return function generateMessageId(): number {
-    const now = Date.now(); // milliseconds since epoch
-
-    if (now === lastTimestamp) {
-      sequence += 1;
-      if (sequence > SEQUENCE_MAX) {
-        // sequence overflow within same millisecond — wait for next millisecond
-        // (this loop will spin for at most ~1ms in normal conditions)
-        while (Date.now() === now) {
-          /* spin */
-        }
-        // after advancing to next ms, recurse to compute id for the new ms
-        return generateMessageId();
-      }
-    } else {
-      lastTimestamp = now;
-      sequence = 0;
-    }
-
-    const id = now * 1000 + sequence; // fits in Number safely for many years
-    return id;
-  };
-})();
+  // fallback: base36 timestamp + monotonic counter + small random
+  const timestamp = Date.now().toString(36);
+  const seqPart = (generateMessageId as any)._seq = ((generateMessageId as any)._seq || 0) + 1;
+  const rand = Math.floor(Math.random() * 0x10000).toString(36);
+  return `${timestamp}-${seqPart.toString(36)}-${rand}`;
+}
