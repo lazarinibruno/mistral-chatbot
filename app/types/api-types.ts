@@ -6,8 +6,11 @@
 
 
 /**
- * @typedef {Object} Usage - Represents the usage in tokens of the API  endpoint
+ * @typedef {Object} Usage - Token usage information
  * 
+ * @property {number} completion_tokens - how many tokens were generated in the generated response
+ * @property {number} prompt_tokens - how many tokens the input (user) message consumed
+ * @property {number} total_tokens - sum of prompt + completion
  */
 export type Usage = {
   completion_tokens: number;
@@ -16,11 +19,11 @@ export type Usage = {
 }
 
 /**
- * @typedef {Object} Message - Represents the Message field of the API response.
+ * @typedef {Object} Message - The actual message sent by the API
  * 
  * @property {string} role - Sender of the message; either `assistant` or `user`
- * @property {unknown | null} tool_calls - Not sure what this is
- * @property {string} content - Content of the message
+ * @property {unknown | null} tool_calls - (nullable) data about calls to external “tools” / functions, if the model used tool
+ * @property {string} content - The text of the response
  * 
  */
 export type Message = {
@@ -29,6 +32,14 @@ export type Message = {
   content: string;
 }
 
+/**
+ * @typedef {Object} Choice - A possible completion / response. Sent in an array by the API.
+ * 
+ * @property {number} index - The index of this particular choice in the choices array
+ * @property {string} finish_reason - A string that explains why the generation stopped
+ * @property {Message} message - The actual message content of this choice
+ * 
+ */
 export type Choice = {
   index: number;
   finish_reason: string;
@@ -36,12 +47,12 @@ export type Choice = {
 }
 
 /**
- * @typedef {Object} ApiResponse
+ * @typedef {Object} ApiResponse - Represents the response given by the API
  * 
- * @property {string} id - Response ID
- * @property {number} created - Date and time of response
- * @property {string} model - Model being used
- * @property {Usage} usage - Token usage
+ * @property {string} id - A unique identifier for this particular completion request
+ * @property {number} created - Date and time of response in unix time
+ * @property {string} model - The model used to generate the completion
+ * @property {Usage} usage - The token usage information
  * @
  */
 export type ApiResponse = {
