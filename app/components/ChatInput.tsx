@@ -11,7 +11,11 @@ type message = { content: string; role: "user" | "assistant" };
 export function ChatInput() {
   const [usrInput, setUsrInput] = useState("");
 
-  const { chats, addChatMsg: addChatMsg } = useChatContext();
+  const {
+    chats,
+    addChatMsg: addChatMsg,
+    setResponseLoading,
+  } = useChatContext();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault(); // Prevent reloading of the page when user user submits an input
@@ -47,6 +51,8 @@ export function ChatInput() {
     };
     addChatMsg(userMsg);
 
+    setResponseLoading(true);
+
     try {
       const response = await fetch("/api/chat", {
         method: "POST",
@@ -69,6 +75,8 @@ export function ChatInput() {
       });
     } catch (e) {
       console.error(e);
+    } finally {
+      setResponseLoading(false);
     }
   };
 
