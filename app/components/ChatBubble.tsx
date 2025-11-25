@@ -1,6 +1,4 @@
 import React from "react";
-import { useChatContext } from "../contexts/ChatContext";
-import LoadingDots from "./LoadingDots";
 
 interface ChatBubbleProps {
   chatId: string;

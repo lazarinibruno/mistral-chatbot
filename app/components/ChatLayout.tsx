@@ -1,7 +1,6 @@
 "use client";
 
 import { useChatContext } from "../contexts/ChatContext";
-import { chatMsg } from "../types/app-types";
 import { ChatBubble } from "./ChatBubble";
 import LoadingDots from "./LoadingDots";
 
