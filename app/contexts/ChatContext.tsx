@@ -22,6 +22,8 @@ import { chatMsg } from "../types/app-types";
 type ChatContextType = {
   chats: Array<chatMsg>;
   addChatMsg: (message: chatMsg) => void;
+  setResponseLoading: (value: boolean) => void;
+  isResponseLoading: () => boolean;
 };
 
 const ChatContext = createContext<ChatContextType | undefined>(undefined);
@@ -64,6 +66,8 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
     return safeParse<chatMsg[]>(raw, []);
   });
 
+  const [loading, setLoading] = useState(false);
+
   // Keeps local storage in sync
   useEffect(() => {
     try {
@@ -85,7 +89,28 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
     });
   };
 
-  const value = useMemo(() => ({ addChatMsg, chats }), [chats]);
+  /**
+   * Setter for loading state.
+   *
+   * @param value
+   */
+  const setResponseLoading = (value: boolean) => {
+    setLoading(value);
+  };
+
+  /**
+   * Getter for the loading state.
+   *
+   * @returns
+   */
+  const isResponseLoading = () => {
+    return loading;
+  };
+
+  const value = useMemo(
+    () => ({ addChatMsg, chats, setResponseLoading, isResponseLoading }),
+    [chats]
+  );
 
   return <ChatContext.Provider value={value}>{children}</ChatContext.Provider>;
 };
