@@ -83,7 +83,7 @@ export function ChatInput() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex w-full max-w-2xl mx-auto space-x-2"
+      className="flex w-full max-w-4xl mx-auto space-x-2"
     >
       <input
         type="text"
