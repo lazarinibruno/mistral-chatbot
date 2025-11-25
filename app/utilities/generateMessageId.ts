@@ -1,5 +1,5 @@
 /** Uses Web Crypto `crypto.randomUUID()` if available, falls back to a compact safe string. 
- * 
+ * -- Created with AI --
  * 
  * @returns {string} Message Id
 */
