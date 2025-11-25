@@ -58,13 +58,12 @@ export const useChatContext = (): ChatContextType => {
  * - `addChatMsg(message)` appends a new message to the `chats` if its id isn't already present
  */
 export const ChatProvider = ({ children }: { children: ReactNode }) => {
-  const [chats, setChats] = useState<chatMsg[]>(() => {
-    if (typeof window === "undefined") return []; // Prevent access to local storage on server side
+  const [chats, setChats] = useState<chatMsg[]>([]);
 
+  useEffect(() => {
     const raw = localStorage.getItem("chats");
-
-    return safeParse<chatMsg[]>(raw, []);
-  });
+    setChats(safeParse(raw, []));
+  }, []);
 
   const [loading, setLoading] = useState(false);
 
