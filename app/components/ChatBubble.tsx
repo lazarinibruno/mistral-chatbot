@@ -1,4 +1,5 @@
 import React from "react";
+import { Markdown } from "./Markdown";
 
 interface ChatBubbleProps {
   chatId: string;
@@ -12,7 +13,9 @@ export function ChatBubble({ chatId, role, children }: ChatBubbleProps) {
   return (
     <div className={`chat ${bubbleType} py-2`}>
       <div key={chatId} className="chat-bubble">
-        {children}
+        <Markdown
+          text={typeof children === "string" ? children : String(children)}
+        />
       </div>
     </div>
   );
