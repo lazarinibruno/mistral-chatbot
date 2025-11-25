@@ -1,4 +1,6 @@
 import React from "react";
+import { useChatContext } from "../contexts/ChatContext";
+import LoadingDots from "./LoadingDots";
 
 interface ChatBubbleProps {
   chatId: string;
@@ -7,8 +9,6 @@ interface ChatBubbleProps {
 }
 
 export function ChatBubble({ chatId, role, children }: ChatBubbleProps) {
-  // For some reason that I have not figured out, the dynamic rendering of the chat bubbles only works by doing this
-  // if statement instead of simply: className={chat chat-${(role === "user" ? "end" : "start")}}.
   let bubbleType = role === "user" ? "chat-end" : "chat-start";
 
   return (
