@@ -3,9 +3,9 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
 /**
+ * Applies markdown styling to input string.
  *
- *
- * @param children -
+ * @param {string} text - String with markdown formatting
  * @returns {JSX.Element}
  */
 export function Markdown({ text }: { text: string }) {
