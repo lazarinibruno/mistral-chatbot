@@ -139,7 +139,7 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
       addConvo,
       convos,
     }),
-    [chats]
+    [chats, convos, loading]
   );
 
   return <ChatContext.Provider value={value}>{children}</ChatContext.Provider>;
