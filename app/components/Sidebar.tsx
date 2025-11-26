@@ -49,12 +49,8 @@ export function Sidebar({ drawerId }: SidebarProps) {
             <p className="pb-2">Your chats</p>
             <ul className="list space-y-2">
               {convos.map((convo) => (
-                <li>
-                  <ConvoButton
-                    key={convo.id}
-                    id={convo.id}
-                    title={convo.title}
-                  />
+                <li key={convo.id}>
+                  <ConvoButton id={convo.id} title={convo.title} />
                 </li>
               ))}
             </ul>
