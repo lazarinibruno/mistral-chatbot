@@ -3,7 +3,7 @@
 import { HomeIcon } from "../assets/HomeIcon";
 import { SettingsIcon } from "../assets/SettingsIcon";
 import { useChatContext } from "../contexts/ChatContext";
-import { ChatButton } from "./ChatButton";
+import { ConvoButton } from "./ConvoButton";
 
 export type SidebarProps = {
   drawerId: string;
@@ -50,7 +50,7 @@ export function Sidebar({ drawerId }: SidebarProps) {
             <ul className="list space-y-2">
               {convos.map((convo) => (
                 <li>
-                  <ChatButton
+                  <ConvoButton
                     key={convo.id}
                     id={convo.id}
                     title={convo.title}
