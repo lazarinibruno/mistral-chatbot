@@ -9,12 +9,12 @@ export function NewChatButton() {
   const { addConvo } = useChatContext();
 
   const handleClick = () => {
+    const id = generateId();
     const newConversation: Convo = {
-      id: generateId(),
-      title: "New chat",
+      id: id,
+      title: id,
       messages: [],
     };
-
     addConvo(newConversation);
   };
 

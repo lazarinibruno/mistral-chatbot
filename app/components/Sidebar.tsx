@@ -50,7 +50,7 @@ export function Sidebar({ drawerId }: SidebarProps) {
             <ul className="list space-y-2">
               {convos.map((convo) => (
                 <li key={convo.id}>
-                  <ConvoButton id={convo.id} title={convo.title} />
+                  <ConvoButton convo={convo} title={convo.title} />
                 </li>
               ))}
             </ul>

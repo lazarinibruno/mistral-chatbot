@@ -11,11 +11,8 @@ type message = { content: string; role: "user" | "assistant" };
 export function ChatInput() {
   const [usrInput, setUsrInput] = useState("");
 
-  const {
-    chats,
-    addChatMsg: addChatMsg,
-    setResponseLoading,
-  } = useChatContext();
+  const { chats, addChatMsg, setResponseLoading, currentConvo } =
+    useChatContext();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault(); // Prevent reloading of the page when user user submits an input
@@ -31,25 +28,25 @@ export function ChatInput() {
     // However, since it is async, it may not be completed in time before the POST is made, so we need to construct an
     // array to send locally.
 
-    // Message type needed for the API
+    // Moroever, the chat completion endpoint is stateless, so sending the whole conversation is needed.
+
     const msg: message = {
+      // Message type needed for the API
       content: usrInput,
       role: "user",
     };
-
-    // The chat completion endpoint is stateless, so sending the whole conversation is needed
     const apiMsgs: message[] = [...chats, msg].map((m) => ({
       content: m.content,
       role: m.role,
     })) as message[];
 
-    // Create message object to update the internal message array. This runs asynchronously.
+    // Create message object to update the internal message array in the context.
     const userMsg: chatMsg = {
       id: generateId(),
       content: msg.content,
       role: msg.role,
     };
-    addChatMsg(userMsg);
+    addChatMsg(userMsg); // async
 
     setResponseLoading(true);
 

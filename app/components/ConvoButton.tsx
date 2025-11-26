@@ -1,8 +1,22 @@
+"use client";
+
+import { useChatContext } from "../contexts/ChatContext";
+import { Convo } from "../types/app-types";
+
 interface ChatButtonProps {
-  id: string;
+  convo: Convo;
   title: string;
 }
 
-export function ConvoButton({ id, title }: ChatButtonProps) {
-  return <button className="btn btn-ghost font-normal">{title}</button>;
+export function ConvoButton({ convo, title }: ChatButtonProps) {
+  const { setCurrentConvo } = useChatContext();
+  const handleClick = () => {
+    setCurrentConvo(convo);
+  };
+
+  return (
+    <button onClick={handleClick} className="btn btn-ghost font-normal">
+      {title}
+    </button>
+  );
 }
