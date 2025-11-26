@@ -11,3 +11,9 @@ export type chatMsg = {
   content: string;
   role: "assistant" | "user";
 }
+
+export type Convo = {
+  id: string;
+  title: string;
+  messages: chatMsg[];
+}
