@@ -10,6 +10,7 @@ import {
 } from "react";
 import { safeParse } from "../utilities/safeParse";
 import { chatMsg } from "../types/app-types";
+import { type Convo } from "../types/app-types";
 
 /**
  * Context shape for chat state and actions.
@@ -24,6 +25,8 @@ type ChatContextType = {
   addChatMsg: (message: chatMsg) => void;
   setResponseLoading: (value: boolean) => void;
   isResponseLoading: () => boolean;
+  addConvo: (convo: Convo) => void;
+  convos: Array<Convo>;
 };
 
 const ChatContext = createContext<ChatContextType | undefined>(undefined);
@@ -59,10 +62,16 @@ export const useChatContext = (): ChatContextType => {
  */
 export const ChatProvider = ({ children }: { children: ReactNode }) => {
   const [chats, setChats] = useState<chatMsg[]>([]);
+  const [convos, setConvos] = useState<Convo[]>([]);
 
   useEffect(() => {
     const raw = localStorage.getItem("chats");
     setChats(safeParse(raw, []));
+  }, []);
+
+  useEffect(() => {
+    const raw = localStorage.getItem("convos");
+    setConvos(safeParse(raw, []));
   }, []);
 
   const [loading, setLoading] = useState(false);
@@ -75,6 +84,21 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
       console.error("Failed to write chats to local storage");
     }
   }, [chats]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem("convos", JSON.stringify(convos));
+    } catch {
+      console.error("Failed to write conversations to local storage");
+    }
+  }, [convos]);
+
+  const addConvo = (convo: Convo) => {
+    setConvos((prev) => {
+      if (prev.some((c) => c.id === convo.id)) return prev;
+      return [...prev, convo];
+    });
+  };
 
   /**
    * Appends message to current chat and prevents duplicates.
@@ -107,7 +131,14 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const value = useMemo(
-    () => ({ addChatMsg, chats, setResponseLoading, isResponseLoading }),
+    () => ({
+      addChatMsg,
+      chats,
+      setResponseLoading,
+      isResponseLoading,
+      addConvo,
+      convos,
+    }),
     [chats]
   );
 
