@@ -18,7 +18,6 @@ export function ChatLayout() {
               </ChatBubble>
             ))}
           </div>
-
           <div>{isResponseLoading() && <LoadingDots />}</div>
         </div>
       </div>
