@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { ApiResponse } from "../types/api-types";
 import { chatMsg } from "../types/app-types";
-import { generateMessageId } from "../utilities/generateMessageId";
+import { generateId } from "../utilities/generateId";
 import { useChatContext } from "../contexts/ChatContext";
 
 type message = { content: string; role: "user" | "assistant" };
@@ -45,7 +45,7 @@ export function ChatInput() {
 
     // Create message object to update the internal message array. This runs asynchronously.
     const userMsg: chatMsg = {
-      id: generateMessageId(),
+      id: generateId(),
       content: msg.content,
       role: msg.role,
     };
@@ -67,7 +67,7 @@ export function ChatInput() {
 
       body.choices.forEach((choice) => {
         const chatMsg: chatMsg = {
-          id: generateMessageId(),
+          id: generateId(),
           content: choice.message.content,
           role: choice.message.role,
         };
