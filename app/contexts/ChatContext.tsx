@@ -145,7 +145,7 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
         const id = generateId();
         const newConvo: Convo = {
           id: id,
-          title: message.content.substring(0, 26), // first 27 chars make the title
+          title: message.content.substring(0, 23) + "...", // first 24 chars make the title
           title_set: true,
           messages: [message],
         };
@@ -164,7 +164,7 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
         messages: [...prevCurrent.messages, message],
         title: prevCurrent.title_set
           ? prevCurrent.title
-          : message.content.substring(0, 26),
+          : message.content.substring(0, 23) + "...",
         title_set: true,
       };
 
