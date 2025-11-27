@@ -13,6 +13,8 @@ import { chatMsg } from "../types/app-types";
 import { type Convo } from "../types/app-types";
 import { generateId } from "../utilities/generateId";
 
+const LS_CONVO_ID = "convos";
+
 /**
  * Context shape for chat state and actions.
  *
@@ -105,7 +107,7 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
 
   // Get the conversations from LocalStorage
   useEffect(() => {
-    const raw = localStorage.getItem("convos");
+    const raw = localStorage.getItem(LS_CONVO_ID);
     setConvos(safeParse(raw, []));
   }, []);
 
@@ -113,7 +115,7 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     try {
-      localStorage.setItem("convos", JSON.stringify(convos));
+      localStorage.setItem(LS_CONVO_ID, JSON.stringify(convos));
     } catch {
       console.error("Failed to write conversations to local storage");
     }

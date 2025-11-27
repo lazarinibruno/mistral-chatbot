@@ -1,4 +1,5 @@
 import { SidebarToggleIcon } from "../assets/SidebarToggleIcon";
+import { DEFAULT_NAVBAR_TITLE } from "../constants/constants";
 import { NewChatButton } from "./NewChatButton";
 
 export type NavbarProps = {
@@ -15,7 +16,10 @@ export type NavbarProps = {
  * @param {string} drawerId - Unique drawer identifier to handle the sidebar toggle logic
  * @param {title} - Title to show on the Navbar
  */
-export function Navbar({ drawerId, title = "Navbar Title" }: NavbarProps) {
+export function Navbar({
+  drawerId,
+  title = DEFAULT_NAVBAR_TITLE,
+}: NavbarProps) {
   return (
     <nav className="navbar w-full bg-base-300">
       <SidebarToggleIcon drawerId={drawerId} />

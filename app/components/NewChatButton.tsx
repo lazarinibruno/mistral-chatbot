@@ -1,6 +1,7 @@
 "use client";
 
 import { NewChatIcon } from "../assets/NewChatIcon";
+import { NEW_CHAT_TITLE } from "../constants/constants";
 import { useChatContext } from "../contexts/ChatContext";
 import { Convo } from "../types/app-types";
 import { generateId } from "../utilities/generateId";
@@ -19,7 +20,7 @@ export function NewChatButton() {
     const id = generateId();
     const newConversation: Convo = {
       id: id,
-      title: "New Chat",
+      title: NEW_CHAT_TITLE,
       title_set: false,
       messages: [],
     };

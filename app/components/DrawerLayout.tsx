@@ -1,5 +1,6 @@
 import Navbar from "./Navbar";
 import { Sidebar } from "./Sidebar";
+import { DEFAULT_NAVBAR_TITLE, DRAWER_ID } from "../constants/constants";
 
 export type DrawerLayoutProps = {
   drawerId?: string;
@@ -18,8 +19,8 @@ export type DrawerLayoutProps = {
  * @param {React.ReactNode} children - The content to display inside the DrawerLayout
  */
 export default function DrawerLayout({
-  drawerId = "drawer-1",
-  navBarTitle = "Navbar Title",
+  drawerId = DRAWER_ID,
+  navBarTitle = DEFAULT_NAVBAR_TITLE,
   children,
 }: DrawerLayoutProps) {
   return (

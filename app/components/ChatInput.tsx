@@ -5,6 +5,13 @@ import { ApiResponse } from "../types/api-types";
 import { chatMsg } from "../types/app-types";
 import { generateId } from "../utilities/generateId";
 import { useChatContext } from "../contexts/ChatContext";
+import {
+  CONTENT_TYPE,
+  LOCAL_SERVER_ENDPOINT,
+  MODEL,
+} from "../constants/constants";
+
+const PLACEHOLDER_TEXT = "Ask anything";
 
 type message = { content: string; role: "user" | "assistant" };
 
@@ -63,11 +70,11 @@ export function ChatInput() {
     setResponseLoading(true);
 
     try {
-      const response = await fetch("/api/chat", {
+      const response = await fetch(LOCAL_SERVER_ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": CONTENT_TYPE },
         body: JSON.stringify({
-          model: "mistral-small-latest",
+          model: MODEL,
           messages: apiMsgs,
         }),
       });
@@ -96,7 +103,7 @@ export function ChatInput() {
     >
       <input
         type="text"
-        placeholder="Ask anything"
+        placeholder={PLACEHOLDER_TEXT}
         value={usrInput}
         onChange={(e) => setUsrInput(e.target.value)}
         className="input flex-1"
