@@ -24,7 +24,10 @@ export function ConvoButton({ convo, title }: ChatButtonProps) {
   };
 
   return (
-    <button onClick={handleClick} className="btn btn-ghost font-normal">
+    <button
+      onClick={handleClick}
+      className="btn btn-ghost font-normal w-full justify-start"
+    >
       {title}
     </button>
   );
