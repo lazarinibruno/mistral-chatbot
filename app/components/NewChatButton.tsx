@@ -5,6 +5,13 @@ import { useChatContext } from "../contexts/ChatContext";
 import { Convo } from "../types/app-types";
 import { generateId } from "../utilities/generateId";
 
+/**
+ * NewChatButton component
+ * --------------------
+ *
+ * Button to start a new conversation.
+ *
+ */
 export function NewChatButton() {
   const { addConvo } = useChatContext();
 
