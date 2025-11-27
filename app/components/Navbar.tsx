@@ -6,6 +6,14 @@ export type NavbarProps = {
   title?: string;
 };
 
+/**
+ * Navbar component
+ * --------------------
+ *
+ * Renders a Navbar containing a sidebar toggle button and a new chat button
+ * @param {string} -
+ * @param {title} -
+ */
 export function Navbar({ drawerId, title = "Navbar Title" }: NavbarProps) {
   return (
     <nav className="navbar w-full bg-base-300">

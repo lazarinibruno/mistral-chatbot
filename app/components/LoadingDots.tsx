@@ -1,4 +1,3 @@
-// components/LoadingDotsNoClip.tsx
 import React from "react";
 
 type Props = {
@@ -9,6 +8,15 @@ type Props = {
   ariaLabel?: string;
 };
 
+/**
+ * LoadingDots component
+ * --------------------
+ *
+ * Renders three dots that move in a wave animation.
+ *
+ * (Generated purely with AI)
+ *
+ */
 export default function LoadingDots({
   className = "text-gray-400",
   size = "0.5rem",

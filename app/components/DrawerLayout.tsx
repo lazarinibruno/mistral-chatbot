@@ -7,6 +7,16 @@ export type DrawerLayoutProps = {
   children: React.ReactNode;
 };
 
+/**
+ * DrawerLayout component
+ * --------------------
+ *
+ * Renders the Navbar, Sidebar and content
+ *
+ * @param {string} drawerId - Unique identifier to handle the toggle logic
+ * @param {string} navBarTitle - Title displayed in the Navbar
+ * @param {React.ReactNode} children - The content to display inside the DrawerLayout
+ */
 export default function DrawerLayout({
   drawerId = "drawer-1",
   navBarTitle = "Navbar Title",

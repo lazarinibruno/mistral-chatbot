@@ -8,6 +8,15 @@ interface ChatButtonProps {
   title: string;
 }
 
+/**
+ * ConvoButton component
+ * --------------------
+ *
+ * Button that appears on the sidebar to select different conversation.
+ *
+ * @param {Convo} convo - Conversation related to this button
+ * @param {string} title - Title of the conversation
+ */
 export function ConvoButton({ convo, title }: ChatButtonProps) {
   const { setCurrentConvo } = useChatContext();
   const handleClick = () => {

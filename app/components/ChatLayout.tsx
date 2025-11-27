@@ -4,6 +4,14 @@ import { useChatContext } from "../contexts/ChatContext";
 import { ChatBubble } from "./ChatBubble";
 import LoadingDots from "./LoadingDots";
 
+/**
+ * ChatLayout
+ * --------------------
+ *
+ * Hadnles the logic to render the ChatBubbles.
+ *
+ * @returns
+ */
 export function ChatLayout() {
   const { chats, isResponseLoading } = useChatContext();
 

@@ -8,6 +8,19 @@ import { useChatContext } from "../contexts/ChatContext";
 
 type message = { content: string; role: "user" | "assistant" };
 
+/**
+ * ChatInput component
+ * --------------------
+ *
+ * Renders the input form and handles the logic to interact with the local endpoint.
+ *
+ * Behaviour:
+ * - Prevents users from submitting an whitespace-only message
+ * - Updates the convos from the ChatContext to include the message in the current conversation
+ * - Makes API reqeust
+ * - Handles the response:
+ *  - Update the ChatContext to include the response message
+ */
 export function ChatInput() {
   const [usrInput, setUsrInput] = useState("");
 
