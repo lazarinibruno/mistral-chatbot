@@ -15,5 +15,6 @@ export type chatMsg = {
 export type Convo = {
   id: string;
   title: string;
+  title_set: boolean;
   messages: chatMsg[];
 }

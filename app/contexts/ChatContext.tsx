@@ -143,7 +143,8 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
         const id = generateId();
         const newConvo: Convo = {
           id: id,
-          title: id,
+          title: message.content.substring(0, 26), // first 27 chars make the title
+          title_set: true,
           messages: [message],
         };
         setConvos((prev) => [...prev, newConvo]);
@@ -159,6 +160,10 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
       const updated: Convo = {
         ...prevCurrent,
         messages: [...prevCurrent.messages, message],
+        title: prevCurrent.title_set
+          ? prevCurrent.title
+          : message.content.substring(0, 26),
+        title_set: true,
       };
 
       // Update convos array to keep the source of truth in sync

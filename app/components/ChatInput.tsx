@@ -24,8 +24,7 @@ type message = { content: string; role: "user" | "assistant" };
 export function ChatInput() {
   const [usrInput, setUsrInput] = useState("");
 
-  const { chats, addChatMsg, setResponseLoading, currentConvo } =
-    useChatContext();
+  const { chats, addChatMsg, setResponseLoading } = useChatContext();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault(); // Prevent reloading of the page when user user submits an input

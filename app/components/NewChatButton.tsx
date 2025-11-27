@@ -19,7 +19,8 @@ export function NewChatButton() {
     const id = generateId();
     const newConversation: Convo = {
       id: id,
-      title: id,
+      title: "New Chat",
+      title_set: false,
       messages: [],
     };
     addConvo(newConversation);
