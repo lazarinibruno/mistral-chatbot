@@ -8,7 +8,7 @@ import LoadingDots from "./LoadingDots";
  * ChatLayout
  * --------------------
  *
- * Hadnles the logic to render the ChatBubbles.
+ * Handles the logic to render the ChatBubbles.
  *
  * @returns
  */
