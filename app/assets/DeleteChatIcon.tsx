@@ -2,7 +2,7 @@ export const DeleteChatIcon = () => {
   return (
     <svg
       width="14.461231"
-      height="14.59073"
+      height="15"
       viewBox="0 0 14.461231 14.59073"
       version="1.1"
       id="svg1"

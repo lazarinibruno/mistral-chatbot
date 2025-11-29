@@ -186,7 +186,8 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const deleteConvo = (id: string) => {
-    setConvos(convos.filter((c) => c.id != id));
+    setConvos((prev) => prev.filter((c) => c.id !== id));
+    setCurrentConversation((prev) => (prev?.id === id ? undefined : prev));
   };
 
   const setResponseLoading = (v: boolean) => setLoading(v);
