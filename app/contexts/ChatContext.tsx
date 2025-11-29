@@ -43,6 +43,13 @@ type ChatContextType = {
   addConvo: (convo: Convo) => void;
 
   /**
+   * Deletes the conversation with the given id.
+   *
+   * @param {string} id - Unique identifier of the convo to be deleted
+   */
+  deleteConvo: (id: string) => void;
+
+  /**
    * Sets the current coversation.
    *
    * @param {Convo} convo - Conversation to be set as currrent
@@ -178,6 +185,10 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
     });
   };
 
+  const deleteConvo = (id: string) => {
+    setConvos(convos.filter((c) => c.id != id));
+  };
+
   const setResponseLoading = (v: boolean) => setLoading(v);
 
   const isResponseLoading = () => loading;
@@ -187,6 +198,7 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
       addChatMsg,
       addConvo,
       setCurrentConvo,
+      deleteConvo,
       setResponseLoading,
       isResponseLoading,
       chats,
