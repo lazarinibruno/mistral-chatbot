@@ -88,6 +88,7 @@ export function ChatInput() {
           role: choice.message.role,
         };
         addChatMsg(chatMsg);
+        console.log(chatMsg);
       });
     } catch (e) {
       console.error(e);

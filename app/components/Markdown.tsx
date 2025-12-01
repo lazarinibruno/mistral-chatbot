@@ -3,6 +3,7 @@ import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import "katex/dist/katex.min.css";
+import { convertTexDelimiters } from "../utilities/convertTexDelimiters";
 
 /**
  * Markdown component
@@ -18,11 +19,8 @@ export function Markdown({ text }: { text: string }) {
       <ReactMarkdown
         remarkPlugins={[remarkGfm, remarkMath]}
         rehypePlugins={[rehypeKatex]}
-        components={{
-          p: ({ node, ...props }) => <p className="mb-2" {...props} />,
-        }}
       >
-        {text}
+        {convertTexDelimiters(text)}
       </ReactMarkdown>
     </div>
   );
