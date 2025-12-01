@@ -40,16 +40,6 @@ export function Sidebar({ drawerId }: SidebarProps) {
                 <span className="is-drawer-close:hidden">Homepage</span>
               </button>
             </li>
-
-            <li>
-              <button
-                className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                data-tip="Settings"
-              >
-                <SettingsIcon />
-                <span className="is-drawer-close:hidden">Settings</span>
-              </button>
-            </li>
           </ul>
 
           <div className="flex flex-col pl-4 is-drawer-close:hidden">
