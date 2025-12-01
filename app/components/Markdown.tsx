@@ -12,7 +12,7 @@ import remarkGfm from "remark-gfm";
 export function Markdown({ text }: { text: string }) {
   return (
     <div className="text-justify leading-relaxed">
-      <ReactMarkdown remarkPlugins={[remarkGfm]}>{text}</ReactMarkdown>
+      <ReactMarkdown>{text}</ReactMarkdown>
     </div>
   );
 }
