@@ -4,6 +4,7 @@ import { HomeIcon } from "../assets/HomeIcon";
 import { SettingsIcon } from "../assets/SettingsIcon";
 import { useChatContext } from "../contexts/ChatContext";
 import { ConvoButton } from "./ConvoButton";
+import { HomeButton } from "./HomeButton";
 
 export type SidebarProps = {
   drawerId: string;
@@ -32,13 +33,7 @@ export function Sidebar({ drawerId }: SidebarProps) {
         <div className="flex flex-col">
           <ul className="menu w-full grow">
             <li>
-              <button
-                className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                data-tip="Homepage"
-              >
-                <HomeIcon />
-                <span className="is-drawer-close:hidden">Homepage</span>
-              </button>
+              <HomeButton />
             </li>
           </ul>
 
