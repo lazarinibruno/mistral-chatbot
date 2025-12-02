@@ -1,4 +1,3 @@
-
 /**
  * @typedef {Object} chatMsg - An internal type that has a unique id for each message
  * 

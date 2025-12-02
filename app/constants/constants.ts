@@ -1,4 +1,6 @@
-// Constants used across mutliple files in the app.
+/** 
+ * Constants used across mutliple files in the app.
+*/
 
 /**
  * Chat completion model

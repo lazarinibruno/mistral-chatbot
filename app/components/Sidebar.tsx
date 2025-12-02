@@ -1,7 +1,5 @@
 "use client";
 
-import { HomeIcon } from "../assets/HomeIcon";
-import { SettingsIcon } from "../assets/SettingsIcon";
 import { useChatContext } from "../contexts/ChatContext";
 import { ConvoButton } from "./ConvoButton";
 import { HomeButton } from "./HomeButton";

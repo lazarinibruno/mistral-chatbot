@@ -1,4 +1,3 @@
-import { ChatBubble } from "./components/ChatBubble";
 import DrawerLayout from "./components/DrawerLayout";
 import { ChatInput } from "./components/ChatInput";
 import { ChatLayout } from "./components/ChatLayout";
@@ -11,7 +10,7 @@ export default function Home() {
         {/* Header / Drawer */}
         <DrawerLayout drawerId="app-drawer" navBarTitle="Mistral Chatbot">
           <ChatLayout />
-          {/* Input field - fixed to bottom */}
+          {/* Input field  */}
           <div className="fixed inset-x-0 bottom-4 p-4">
             <div className="mx-auto w-full max-w-2xl">
               <div className="w-full max-w-2xl">
