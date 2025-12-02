@@ -16,3 +16,7 @@ To run the app locally in dev mode, clone the repository and run:
 ```
 docker compose -f compose.yaml up --build
 ```
+
+## TODO
+
+- Add support for LaTeX.
