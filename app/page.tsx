@@ -3,6 +3,13 @@ import { ChatInput } from "./components/ChatInput";
 import { ChatLayout } from "./components/ChatLayout";
 import { ChatProvider } from "./contexts/ChatContext";
 
+/**
+ * Home component
+ * --------------------
+ *
+ * The entry point for the app and only page.
+ *
+ */
 export default function Home() {
   return (
     <ChatProvider>

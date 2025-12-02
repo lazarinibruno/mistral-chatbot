@@ -6,6 +6,14 @@ import { useChatContext } from "../contexts/ChatContext";
 import { Convo } from "../types/app-types";
 import { generateId } from "../utilities/generateId";
 
+/**
+ * HomeButton component
+ * --------------------
+ *
+ * Button with house icon. Clicking on it takes creates a new conversation.
+ *
+ * @returns
+ */
 export function HomeButton() {
   const { addConvo } = useChatContext();
 

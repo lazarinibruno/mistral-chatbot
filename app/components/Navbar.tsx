@@ -14,7 +14,7 @@ export type NavbarProps = {
  * Renders a Navbar containing a sidebar toggle button and a new chat button
  *
  * @param {string} drawerId - Unique drawer identifier to handle the sidebar toggle logic
- * @param {title} - Title to show on the Navbar
+ * @param {string} title - Title to show on the Navbar
  */
 export function Navbar({
   drawerId,

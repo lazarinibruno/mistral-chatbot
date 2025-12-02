@@ -13,7 +13,6 @@ export type SidebarProps = {
  * --------------------
  *
  * @param {string} drawerId - Unique identifier to handle the sidebar toggle logic
- * @returns
  */
 export function Sidebar({ drawerId }: SidebarProps) {
   const { convos } = useChatContext();

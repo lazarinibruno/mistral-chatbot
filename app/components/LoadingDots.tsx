@@ -14,8 +14,6 @@ type Props = {
  *
  * Renders three dots that move in a wave animation.
  *
- * (Generated purely with AI)
- *
  */
 export default function LoadingDots({
   className = "text-gray-400",
