@@ -11,15 +11,7 @@ Deployment: [Live Demo](https://mistral-chatbot-five.vercel.app/)
 
 ## Run with Docker
 
-To run the app locally, clone the repository.
-
-For the production build, run:
-
-```
-docker compose -f compose.yaml up --build
-```
-
-For the development build with hot reload, run:
+To run the app locally in dev mode, clone the repository and run:
 
 ```
 docker compose -f compose.yaml up --build
