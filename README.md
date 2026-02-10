@@ -1,13 +1,16 @@
 # Mistral Chatbot
+<p align="center">
+  <img width="900" height="200" alt="lil-robot-github-bigger" src="https://github.com/user-attachments/assets/de384657-3dee-4b4a-9569-aa134a547ad5" />
 
-Chatbot developed using Next.js and Mistral AI's chat completion API.
+</p>
+This is a small porject that I developed to learn modern web technologies such as React and Next.js, and as part of my application process for an internship at Mistral (which I didn't get).
 
-Deployment: [Live Demo](https://mistral-chatbot-five.vercel.app/)
+## Live demo
+If you want to try it out, here's the follow this [link](https://mistral-chatbot-five.vercel.app/) to the live demo.
 
 ## Features
-
 - Multiple chat support
-- Local storage
+- Local storage of chats
 
 ## Run with Docker
 
@@ -26,4 +29,5 @@ docker compose -f compose.yaml up --build
 
 ## TODO
 
-- Add support for LaTeX. 
+### Add LaTeX support
+I tried adding LaTeX support, but unfortunately it only worked partially and made the app very buggy, so I decided against implementing it. If I have time and motiviation in the future, I will fix this issue. 
