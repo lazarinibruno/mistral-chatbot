@@ -1,8 +1,16 @@
 # Mistral Chatbot
 <p align="center">
   <img width="900" height="200" alt="lil-robot-github-bigger" src="https://github.com/user-attachments/assets/de384657-3dee-4b4a-9569-aa134a547ad5" />
-
 </p>
+
+<p align="center">
+  <img alt="Static Badge" src="https://img.shields.io/badge/TypeScript-blue?logo=typescript&logoColor=white">
+  <img alt="Static Badge" src="https://img.shields.io/badge/React-steelblue?logo=react">
+  <img alt="Static Badge" src="https://img.shields.io/badge/Next.js-black?logo=nextdotjs">
+  <img alt="Static Badge" src="https://img.shields.io/badge/TailwindCSS-silver?logo=tailwindcss">
+  <img alt="Static Badge" src="https://img.shields.io/badge/daisyUI-orange?logo=daisyui">
+</p>
+
 This is a small porject that I developed to learn modern web technologies such as React and Next.js, and as part of my application process for an internship at Mistral (which I didn't get).
 
 ## Live demo
