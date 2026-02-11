@@ -23,7 +23,8 @@ export function Navbar({
   return (
     <nav className="navbar w-full bg-base-300">
       <SidebarToggleIcon drawerId={drawerId} />
-      <div className="flex flex-row px-4">
+      <div className="flex flex-row items-center gap-2 px-4">
+        <img src="/lil_robot-32.png" alt="Logo" width={32} height={32} />
         <div>{title}</div>
       </div>
 

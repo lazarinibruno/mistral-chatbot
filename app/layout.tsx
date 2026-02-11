@@ -14,7 +14,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Mistral Chatbot",
-  description: "Chatbot for internship application process",
+  description: "Chatbot using Mistral AI's API",
+  icons: {
+    icon: "/lil_robot.png",
+  },
 };
 
 export default function RootLayout({
